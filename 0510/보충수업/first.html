@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+
+  <!-- 실행순서
+        1. 뷰 라이브러리 로딩
+        2. 화면 구성요소 생성
+        3. 뷰 인스턴스 생성
+        4. 화면과 뷰인스턴스 연결
+        5. 화면 전환(데이터 치환)
+        6. 사용자 확인
+-->
+  <body>
+    <div id="app">
+      <h1>{{message}}</h1>
+      <h1>{{code}}</h1>
+    </div>
+
+    <div id="other">
+      <h1>{{message}}</h1>
+      <h1>{{code}}</h1>
+    </div>
+    <!-- 3번까지 -->
+    <script>
+      // View 인스턴스(객체) : ViewModel 역할의 객체
+      // 화면(view, html)과 데이터를(model)를 연결해서 관리해 줌
+      var vm = new Vue({
+        // elmentVa : Vue객체가 관리할 화면요소
+        el: "#app", // el: Vue 객체가 관리할 화면 화면요소
+        data: {
+          // Vue 객체가 가지고 있는 에디터
+          message: "hello, Vue!",
+          code: 12345,
+        },
+      });
+    </script>
+  </body>
+</html>
