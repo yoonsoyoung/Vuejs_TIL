@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <span>파라미터 : {{ p }}</span>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: function() {
+        return {
+          userid: 'ssafy',
+          p: ''
+        }
+      },
+      created() {
+        const params = new URL(document.location).searchParams;
+        alert(params.get('userid'));
+        this.p = params.get('userid');
+      }
+    });
+  </script>
+</body>
+</html>
