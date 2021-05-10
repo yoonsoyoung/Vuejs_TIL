@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Destructuring Assignment (비구조화 할당)
+      // 배열이나 객체에 입력된 값을 개별적인 변수에 할당하는 간편한 방식 제공.
+      const user = {
+        id: "ssafy",
+        name: "김싸피",
+        age: 25,
+      };
+
+      // 기존 Object
+      {
+        let id = user.id;
+        let name = user.name;
+        let age = user.age;
+        console.log(id, name, age);
+      }
+
+      // Destructuring Assignment
+      // {} 로 객체, user 는 위의 객체 이름. {}안에 변수명은 객체의 프로퍼티와 같은 이름인 애를 자동으로
+      {
+        let { id, name, age } = user;
+        console.log(id, name, age);
+      }
+
+      // 기존의 이름과 다른게 할당.
+      let { id: ssafyid, name: ssafyname, age: ssafyage } = user;
+      console.log(ssafyid, ssafyname, ssafyage);
+
+      // 기존 Array
+      const area = ["서울", "대전", "구미", "광주"];
+      {
+        const a1 = area[0];
+        const a2 = area[1];
+        const a3 = area[2];
+        const a4 = area[3];
+
+        console.log(a1, a2, a3, a4);
+      }
+
+      // Destructuring Assignment
+      // [] 로 배열, 따로 변수를 만들지 않고 할당 가능
+      {
+        const [a1, a2, a3, a4] = area;
+        console.log(a1, a2, a3, a4);
+      }
+
+      // 객체를 return 하는 함수
+      function getUser() {
+        return {
+          id: "ssafy",
+          name: "김싸피",
+          age: 25,
+        };
+      }
+
+      // 기존
+      {
+        let user = getUser();
+        let id = user.id;
+        let name = user.name;
+        let age = user.age;
+        console.log(id, name, age);
+      }
+
+      // Destructuring Assignment
+      // getUser가 객체를 리턴하니까 {} 객체로 한 방에 받아 낼 수 있음.
+      {
+        let { id, name, age } = getUser();
+        console.log(id, name, age);
+      }
+
+      // 기존
+      function showUserInfo1(user) {
+        console.log("userInfo1");
+        console.log("아이디 : ", user.id);
+        console.log("이름 : ", user.name);
+        console.log("나이 : ", user.age);
+      }
+
+      showUserInfo1(user);
+
+      // Destructuring Assignment
+      function showUserInfo2({ id, name, age }) {
+        console.log("userInfo2");
+        console.log("아이디 : ", id);
+        console.log("이름 : ", name);
+        console.log("나이 : ", age);
+      }
+
+      showUserInfo2(user);
+    </script>
+  </head>
+  <body></body>
+</html>
