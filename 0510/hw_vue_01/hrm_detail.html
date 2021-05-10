@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <style>
+      * {
+        list-style: none;
+        text-decoration: none;
+      }
+      .center {
+        text-align: center;
+      }
+      .left {
+        text-align: left;
+      }
+      table {
+        margin: 20px auto;
+        width: 800px;
+      }
+      tr {
+        height: 40px;
+        border: 1px solid darkgray;
+      }
+      tr:hover {
+        background-color: rgb(230, 230, 230);
+      }
+      th {
+        text-align: center;
+        height: 40px;
+        color: white;
+        background-color: steelblue;
+      }
+      #empId {
+        width: 150px;
+      }
+    </style>
+    <hr />
+    <div class="center">
+      <h3>사원 정보</h3>
+      <table id="detail">
+        <thead>
+          <tr>
+            <th>사원 아이디</th>
+            <th>사원명</th>
+            <th>부서</th>
+            <th>직책</th>
+            <th>연봉</th>
+          </tr>
+        </thead>
+        <tr v-for="item in emp" v-if="item.id == id">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.deptName}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.salary}}</td>
+        </tr>
+      </table>
+      <a href="hrm_list.html" class="left">사원 목록</a>
+    </div>
+
+    <script>
+      const emps = [
+        {
+          id: "1",
+          name: "박구곤",
+          deptName: "인사부",
+          title: "사장",
+          salary: "60000",
+        },
+        {
+          id: "18",
+          name: "서정주",
+          deptName: "기획부",
+          title: "사원",
+          salary: "13000",
+        },
+        {
+          id: "19",
+          name: "안창환",
+          deptName: "기획부",
+          title: "사원",
+          salary: "678",
+        },
+        {
+          id: "20",
+          name: "윤정숙",
+          deptName: "기획부",
+          title: "사원",
+          salary: "750",
+        },
+        {
+          id: "21",
+          name: "장현철",
+          deptName: "기획부",
+          title: "사원",
+          salary: "8500",
+        },
+        {
+          id: "23",
+          name: "강연범",
+          deptName: "영업부",
+          title: "사원",
+          salary: "795",
+        },
+        {
+          id: "24",
+          name: "오은경",
+          deptName: "기획부",
+          title: "사원",
+          salary: "860",
+        },
+        {
+          id: "27",
+          name: "장길산",
+          deptName: "영업부",
+          title: "과장",
+          salary: "12345",
+        },
+        {
+          id: "28",
+          name: "장취산",
+          deptName: "영업부",
+          title: "사원",
+          salary: "23244",
+        },
+        {
+          id: "29",
+          name: "김상순",
+          deptName: "기획부",
+          title: "사원",
+          salary: "20000",
+        },
+        {
+          id: "30",
+          name: "장삼봉",
+          deptName: "인사부",
+          title: "사원",
+          salary: "10000",
+        },
+        {
+          id: "31",
+          name: "백소정",
+          deptName: "인사부",
+          title: "사원",
+          salary: "20000",
+        },
+        {
+          id: "33",
+          name: "조현욱",
+          deptName: "회계부",
+          title: "사원",
+          salary: "1500",
+        },
+      ];
+
+      new Vue({
+        el: "#detail",
+        data: { emp: emps },
+
+        // GET방식으로 값 받아옴
+        created() {
+          const params = new URL(document.location).searchParams;
+          this.id = params.get("id");
+        },
+      });
+    </script>
+  </body>
+</html>
