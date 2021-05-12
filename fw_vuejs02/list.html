@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도서목록</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="center">
+        <a href="index.html"><img src="img/ssafy_logo.png" alt="ssafy_logo" id="LogoImg" /></a>
+        <h1 id="title">도서관리</h1>
+      </div>
+    </div>
+    <div class="content ml-2">
+      <h2 class="mt-4 ml-2">도서 목록</h2>
+      <div class="list mt-3" align="right">
+        <button class="btn btn-secondary" @click = "regist()">도서등록</button>
+        <table class="table table-striped mt-3">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>ISBN</th>
+              <th>제목</th>
+              <th>저자</th>
+              <th>가격</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(book, i) in books" :key = "i" @click = "detailInfo(book.isbn)">
+              <td>{{i+1}}</td>
+              <td>{{book.isbn}}</td>
+              <td>{{book.btitle}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.price}}</td>
+              <td>{{book.descr}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <script>
+        new Vue({
+          el: '.list',
+          data() {
+            return {
+              books: [],
+            };
+          },
+
+          methods: {
+
+
+            detailInfo(isbn) {
+              location.href = 'view.html?isbn=' + isbn;
+            },
+            regist() {
+              location.href = 'create.html';
+            },
+          },
+          created() {
+            let temp = localStorage.getItem("books");
+            if (temp !== null || temp.length != 0) {
+              this.books = JSON.parse(temp);
+            } 
+          }
+        })
+      </script>
+  </body>
+</html>
