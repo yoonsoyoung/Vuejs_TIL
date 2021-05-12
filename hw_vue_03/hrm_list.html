@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>사원목록</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <style>
+      * {
+        list-style: none;
+        text-decoration: none;
+      }
+      .center {
+        text-align: center;
+      }
+      table {
+        margin: 20px auto;
+        width: 800px;
+      }
+      tr {
+        height: 40px;
+        border: 1px solid darkgray;
+      }
+      tr:hover {
+        background-color: rgb(230, 230, 230);
+      }
+      th {
+        text-align: center;
+        height: 40px;
+        color: white;
+        background-color: steelblue;
+      }
+      #empId {
+        width: 150px;
+      }
+      .search {
+        border: 1px solid lightgray;
+        margin: 30px auto;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .searchForm input {
+        width: 300px;
+      }
+    </style>
+    <div id="info">
+      <hrm-list></hrm-list>
+    </div>
+    <script type="module">
+      import HrmList from "./components/HrmList.js";
+      new Vue({
+        el: "#info",
+        name: "list",
+        components: {
+          HrmList,
+        },
+      });
+    </script>
+  </body>
+</html>

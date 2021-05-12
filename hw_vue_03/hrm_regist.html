@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>사원등록</title>
+  </head>
+  <body>
+    <style>
+      .header {
+        text-align: center;
+      }
+      .titleLogo {
+        font-family: serif;
+        font-size: 20px;
+        color: blue;
+      }
+      .content {
+        text-align: center;
+      }
+      table {
+        margin: 0 auto;
+        width: 800px;
+        border: 1px solid lightgray;
+        border-collapse: collapse;
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+      table td {
+        border: 1px solid lightgray;
+        height: 35px;
+        text-align: left;
+      }
+      td > input,
+      select {
+        text-align: left;
+        margin-left: 5px;
+      }
+
+      .tdName {
+        color: white;
+        background-color: steelblue;
+        width: 250px;
+        text-align: center;
+      }
+    </style>
+    <div id="regist">
+      <hrm-regist></hrm-regist>
+    </div>
+
+    <script type="module">
+      import HrmRegist from "./components/HrmRegist.js";
+
+      new Vue({
+        el: "#regist",
+        name: "regist",
+        components: {
+          HrmRegist,
+        },
+      });
+    </script>
+  </body>
+</html>
