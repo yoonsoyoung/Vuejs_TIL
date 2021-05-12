@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      아이디 :
+      <input placeholder="검색할 아이디를 입력하세요" v-model="id" @keyup="sendId" />
+      <input placeholder="검색할 아이디를 입력하세요" v-model="id" @keyup.13="sendId" />
+      <input placeholder="검색할 아이디를 입력하세요" v-model="id" @keyup.enter="sendId" />
+      <button @click="sendId">검색</button>
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          id: '',
+        },
+        methods: {
+          sendId() {
+            alert(this.id);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <p>수업을 듣는 지역을 선택하시오</p>
+        <select v-model="selectedArea">
+          <option v-for="option in options" v-bind:value="option.value">{{ option.text }}</option>
+        </select>
+      </div>
+      <span>선택한 지역 : {{ selectedArea }}</span>
+      <!-- <a :href="'test39.html?selectedArea='+selectedArea">선택</a> -->
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          selectedArea: "",
+          options: [
+            { text: "서울", value: "seoul" },
+            { text: "광주", value: "gwangju" },
+            { text: "대전", value: "daejeon" },
+            { text: "구미", value: "gumi" },
+          ],
+        },
+        created() {
+          // const params = new URL(document.location).searchParams;
+          // console.log(params.get("selectedArea"));
+          // this.area = params.get("selectedArea");
+          param = "seoul";
+          this.selectedArea = params;
+        },
+      });
+    </script>
+  </body>
+</html>
