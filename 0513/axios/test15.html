@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="result">
+        <table>
+          <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+          </tr>
+          <tr v-for="article in articles">
+            <td>{{article.no}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.writer}}</td>
+            <td>{{article.regtime}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      const addr = 'http://localhost:9999/vue/api/board';
+
+      new Vue({
+        el: '#app',
+        data: {
+          articles: [],
+        },
+        created() {
+          axios
+            .get(addr)
+            .then((response) => {
+              this.articles = response.data;
+            })
+            .catch((error) => {
+              console.dir(error);
+            });
+        },
+      });
+    </script>
+  </body>
+</html>
